@@ -296,17 +296,17 @@ a {
     display: inline-block;
     width: 30px;
     height: 20px;
-  }
+}
   
-  /* Hide default HTML checkbox */
-  .switch input {
+/* Hide default HTML checkbox */
+.switch input {
     opacity: 0;
     width: 0;
     height: 0;
-  }
+}
   
-  /* The slider */
-  .slider {
+/* The slider */
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -316,9 +316,9 @@ a {
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
-  }
+}
   
-  .slider:before {
+.slider:before {
     position: absolute;
     content: "";
     height: 19px;
@@ -326,27 +326,45 @@ a {
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
-  }
+}
   
-  input:checked + .slider {
+input:checked + .slider {
     background-color: #2196F3;
-  }
+}
   
-  input:focus + .slider {
+input:focus + .slider {
     box-shadow: 0 0 1px #2196F3;
-  }
+}
   
-  input:checked + .slider:before {
+input:checked + .slider:before {
     -webkit-transform: translateX(11px);
     -ms-transform: translateX(11px);
     transform: translateX(11px);
-  }
+}
   
-  /* Rounded sliders */
-  .slider.round {
+/* Rounded sliders */
+    .slider.round {
     border-radius: 34px;
-  }
-  
-  .slider.round:before {
+}
+
+.slider.round:before {
     border-radius: 50%;
-  }
+}
+
+/* Book Adding Screen */
+
+#book-add-screen {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s; 
+}
+  
+#page-container.blur{
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}

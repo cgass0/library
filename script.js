@@ -23,3 +23,9 @@ function Book() {
 function addBookToLibrary() {
   // do stuff here
 }
+
+function bookAdd() {
+    document.getElementById("book-add-screen").style.width = "100%";
+    console.log("test");
+    document.getElementById('page-container').classList.add('blur');
+}

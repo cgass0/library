@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <title>library</title>
 </head>
-<body>
+<body id="body">
     <div id="page-container">
         <div id="header-container">
             <div id="upper-header">
@@ -45,7 +45,7 @@
                     </div>    
                 </div>
                 <div id="add-container">
-                    <button>Add Book</button>
+                    <button onclick="bookAdd()">Add Book</button>
                 </div>
             </div>
         </div>
@@ -176,5 +176,14 @@
             </div>
         </div>
     </div>
+
+<!--New Book Add Screen-->
+    <div id="book-add-screen">
+        <div class="add-scren">
+            <p class="startTitle">Are You Ready To Fight?</p>
+            <button id="startBtn">START</button>
+        </div>
+    </div> 
+    
 </body>
 </html>
