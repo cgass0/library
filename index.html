@@ -1,1 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>library</title>
+</head>
+<body>
+    <div id="page-container">
+        <div id="header-container">
+            <div id="upper-header">
+                <div id="search-bar">
+                    <img class="icon-or" src="resources/search.png" alt="Magnifying Glass Icon">
+                    <input id="search-input" type="text" placeholder="search your library">
+                </div>
+                <div id="profile-link">
+                    <div class="flex">
+                        <img class="profile-img" src="resources/userProfile.png" alt="Profile Picture">
+                        <a href="">John Smith</a>
+                    </div>
+                </div>    
+            </div>
+            <div id="lower-header">
+                <div id="filter-container">
+                    <div id="sort-container">
+                        <label for="sort">Sort:</label>
+                        <select id="sort" name="sort">
+                        <option value="A-Z">A-Z</option>
+                        <option value="Z-A">Z-A</option>
+                        <option value="Latest">Latest</option>
+                        <option value="Earliest">Earliest</option>
+                        </select>
+                    </div>    
+                    <div id="filt-container">
+                        <label for="Filter">Filter:</label>
+                        <select id="filter" name="filter">
+                        <option value="All">All</option> 
+                        <option value="Read">Read</option>
+                        <option value="Un-Read">Un-Read</option>
+                        </select>
+                    </div>    
+                </div>
+                <div id="add-container">
+                    <button>Add Book</button>
+                </div>
+            </div>
+        </div>
 
+        <div id="left-container">
+            <div class="menu-item" id="logo">
+                <img class="left logo-img" src="resources/library-logo.png" alt="Library Logo/Icon">
+                <h1 class="right">Library</h1>
+            </div>
+            <div id="side-menu">
+                <div class="menu-item">
+                    <img class="icon left " src="resources/library.png" alt="Library Icon">
+                    <a class="right" href="">Library</a>
+                </div>
+                <div class="menu-item ">
+                    <img class="icon left" src="resources/profile.png" alt="Profile Icon">
+                    <a class="right" href="">Profile</a>
+                </div>
+                <div class="menu-item ">
+                    <img class="icon left" src="resources/book-finder.png" alt="Book Finder Icon">
+                    <a class="right" href="">Book Finder</a>
+                </div>
+                <div class="menu-item ">
+                    <img class="icon left" src="resources/community.png" alt="Book Clubs Icon">
+                    <a class="right" href="">Book Clubs</a>
+                </div>
+                <div class="menu-item ">
+                    <img class="icon left" src="resources/achievements.png" alt="Achievemnets Icon">
+                    <a class="right" href="">Achievements</a>
+                </div>
+                <div class="menu-item ">
+                    <img class="icon left" src="resources/tasks.png" alt="Stats Icon">
+                    <a class="right" href="">Stats</a>
+                </div>
+                <div class="menu-item spacer">
+                    <img class="icon left" src="resources/settings.png" alt="Settings Icon">
+                    <a class="right" href="">Settings</a>
+                </div>
+                <div class="menu-item ">
+                    <img class="icon left" src="resources/support.png" alt="Help Icon">
+                    <a class="right" href="">Help</a>
+                </div>
+                <div class="menu-item">
+                    <label class="switch left">
+                        <input type="checkbox">
+                        <span class="slider round left"></span>
+                    </label>
+                    <p class="right" href="">Dark Mode</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="hero-container">
+            <div id="hero-title" class="title">
+                <h1>My Books</h1>
+            </div>
+            <div id="hero-card-container">
+                <div class="books">
+                    <p class="book-title">Title: <span class="book-title"></span></p>
+                    <p class="book-author">Author: <span class="book-author"></span></p>
+                    <p class="book-pages">Pages: <span class="book-pages"></span></p>
+                    <p class="book-start">Start Date: <span class="book-start"></span></p>
+                    <p class="book-status">Status: <span class="book-status"></span></p>
+                    <div class="book-switch">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <p></p>
+                    </div>
+                </div>         
+                <div class="books">
+                    <p class="book-title">Title: <span class="book-title"></span></p>
+                    <p class="book-author">Author: <span class="book-author"></span></p>
+                    <p class="book-pages">Pages: <span class="book-pages"></span></p>
+                    <p class="book-start">Start Date: <span class="book-start"></span></p>
+                    <p class="book-status">Status: <span class="book-status"></span></p>
+                    <div class="book-switch">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <p></p>
+                    </div>
+                </div>  
+                <div class="books">
+                    <p class="book-title">Title: <span class="book-title"></span></p>
+                    <p class="book-author">Author: <span class="book-author"></span></p>
+                    <p class="book-pages">Pages: <span class="book-pages"></span></p>
+                    <p class="book-start">Start Date: <span class="book-start"></span></p>
+                    <p class="book-status">Status: <span class="book-status"></span></p>
+                    <div class="book-switch">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <p></p>
+                    </div>
+                </div>     
+                <div class="books">
+                    <p class="book-title">Title: <span class="book-title"></span></p>
+                    <p class="book-author">Author: <span class="book-author"></span></p>
+                    <p class="book-pages">Pages: <span class="book-pages"></span></p>
+                    <p class="book-start">Start Date: <span class="book-start"></span></p>
+                    <p class="book-status">Status: <span class="book-status"></span></p>
+                    <div class="book-switch">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <p></p>
+                    </div>
+                </div>     
+            </div>
+        </div>
+
+        <div id="right-container">
+            <div id="log-title" class="title">
+                <h2>Library Log</h2>
+            </div>
+            <div id="log-container">
+                <div id="log-card">
+                    <p>Total Books:</p>
+                    <p>Books Read:</p>
+                    <p>Books Unread:</p>
+                    <a href="">More Stats...</a>
+                </div>    
+            </div>
+        </div>
+    </div>
+</body>
+</html>
