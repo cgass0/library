@@ -33,6 +33,8 @@
                         <option value="Z-A">Z-A</option>
                         <option value="Latest">Latest</option>
                         <option value="Earliest">Earliest</option>
+                        <option value="Earliest">Most Pages</option>
+                        <option value="Earliest">Least Pages</option>
                         </select>
                     </div>    
                     <div id="filt-container">
@@ -104,11 +106,11 @@
             </div>
             <div id="hero-card-container">
                 <div class="books">
+                    <span><img class="icon-or remove" src="resources/delete.png" alt="Delete Icon"></span>
                     <p class="book-title">Title: <span class="book-title"></span></p>
                     <p class="book-author">Author: <span class="book-author"></span></p>
                     <p class="book-pages">Pages: <span class="book-pages"></span></p>
                     <p class="book-start">Start Date: <span class="book-start"></span></p>
-                    <p class="book-status">Status: <span class="book-status"></span></p>
                     <div class="book-switch">
                         <label class="switch">
                             <input type="checkbox">
@@ -118,11 +120,11 @@
                     </div>
                 </div>         
                 <div class="books">
+                    <span><img class="icon-or remove" src="resources/delete.png" alt="Delete Icon"></span>
                     <p class="book-title">Title: <span class="book-title"></span></p>
                     <p class="book-author">Author: <span class="book-author"></span></p>
                     <p class="book-pages">Pages: <span class="book-pages"></span></p>
                     <p class="book-start">Start Date: <span class="book-start"></span></p>
-                    <p class="book-status">Status: <span class="book-status"></span></p>
                     <div class="book-switch">
                         <label class="switch">
                             <input type="checkbox">
@@ -132,11 +134,11 @@
                     </div>
                 </div>  
                 <div class="books">
+                    <span><img class="icon-or remove" src="resources/delete.png" alt="Delete Icon"></span>
                     <p class="book-title">Title: <span class="book-title"></span></p>
                     <p class="book-author">Author: <span class="book-author"></span></p>
                     <p class="book-pages">Pages: <span class="book-pages"></span></p>
                     <p class="book-start">Start Date: <span class="book-start"></span></p>
-                    <p class="book-status">Status: <span class="book-status"></span></p>
                     <div class="book-switch">
                         <label class="switch">
                             <input type="checkbox">
@@ -146,11 +148,11 @@
                     </div>
                 </div>     
                 <div class="books">
+                    <span><img class="icon-or remove" src="resources/delete.png" alt="Delete Icon"></span>
                     <p class="book-title">Title: <span class="book-title"></span></p>
                     <p class="book-author">Author: <span class="book-author"></span></p>
                     <p class="book-pages">Pages: <span class="book-pages"></span></p>
                     <p class="book-start">Start Date: <span class="book-start"></span></p>
-                    <p class="book-status">Status: <span class="book-status"></span></p>
                     <div class="book-switch">
                         <label class="switch">
                             <input type="checkbox">
@@ -180,9 +182,24 @@
 <!--New Book Add Screen-->
     <div id="book-add-screen">
         <div class="add-scren">
-            <p class="startTitle">Are You Ready To Fight?</p>
-            <button id="startBtn">START</button>
+            <button id="exit" onclick="exit()">X</button>
         </div>
+        <div id="new-book-container">
+            <div id="new-book-menu">
+                <p class="book-title">Title: <span><input id="title-input" type="text" placeholder="Book title"></span></p>
+                <p class="book-author">Author: <span><input id="author-input" type="text" placeholder="Author name"></span></p>
+                <p class="book-pages">Pages: <span><input id="pages-input" type="number" placeholder="Number of pages"></span></p>
+                <p class="book-start">Start Date: <span><input id="date-input" type="date" placeholder="start date"></span></p>
+                <p class="book-status">Read: <span>
+                                                    <label class="container">
+                                                        <input type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </span>
+                </p>
+                <button id="addBtn" onclick="exit()">Add New Book</button>
+            </div>
+        <div>   
     </div> 
     
 </body>

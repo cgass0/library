@@ -192,7 +192,7 @@ a {
     grid-row: 2/4;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(250px, 300px));
+    grid-template-rows: repeat(auto-fit, minmax(250px, 250px));
     gap: 25px;
     padding: 0px 25px;
     overflow-y: auto;
@@ -201,6 +201,19 @@ a {
 #hero-card-container::-webkit-scrollbar { 
     display: none;
 } 
+
+.books>span {
+    position: relative;
+    left: 85%;
+    top: 0%;
+}
+
+span>button {
+    background-color: var(--color-white);
+    border: none;
+    cursor: pointer;
+    color: var(--color-black);
+}
 
 #hero-title>h1 {
     padding-left: 25px;
@@ -356,15 +369,74 @@ input:checked + .slider:before {
 #book-add-screen {
     height: 100%;
     width: 0;
-    position: fixed;
+    position: absolute;
     z-index: 1;
     top: 0;
     left: 0;
     overflow-x: hidden;
-    transition: 0.5s; 
+    transition: 0.0s; 
+    display: grid;
 }
   
 #page-container.blur{
     filter: blur(8px);
     -webkit-filter: blur(8px);
+}
+
+#exit {
+    position: absolute;
+    left: 95%;
+    bottom: 95%;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    font-size: 30px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+#new-book-container {
+    align-items: center;
+    text-align: center;
+    justify-self: center;
+    height: 375px;
+    width: 350px;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border: 2px solid var(--color-black);
+    border-radius: 25px;
+    padding: 20px;
+}
+
+#new-book-menu {
+    background-color: var(--gradient);
+    color: var(--color-black);
+}
+
+#new-book-menu input {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border: 2px solid var(--color-black);
+    border-radius: 5px;
+    height: 25px;
+    width: 90%;
+    padding-left: 10px;
+}
+
+#new-book-menu button {
+    height: 35px;
+    width: 200px;
+    border-radius: 20px;
+    background-color: var(--color-theme-2);
+    color: white;
+    font-weight: bolder;
+    align-items: center;
+    background-image: var(--gradient);
+    border: 0;
+    box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+    cursor: pointer;
+    justify-content: center;
+    list-style: none;
+    transition: box-shadow .15s,transform .15s;
+    white-space: nowrap;
+    font-size: 18px;
 }
