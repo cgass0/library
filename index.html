@@ -32,9 +32,9 @@
                         <option value="A-Z">A-Z</option>
                         <option value="Z-A">Z-A</option>
                         <option value="Latest">Latest</option>
-                        <option value="Earliest">Earliest</option>
-                        <option value="Earliest">Most Pages</option>
-                        <option value="Earliest">Least Pages</option>
+                        <option value="Oldest">Oldest</option>
+                        <option value="Most Pages">Most Pages</option>
+                        <option value="Least Pages">Least Pages</option>
                         </select>
                     </div>    
                     <div id="filt-container">
@@ -47,7 +47,7 @@
                     </div>    
                 </div>
                 <div id="add-container">
-                    <button onclick="bookAdd()">Add Book</button>
+                    <button id="addBookBtn">Add Book</button>
                 </div>
             </div>
         </div>
@@ -107,60 +107,17 @@
             <div id="hero-card-container">
                 <div class="books">
                     <span><img class="icon-or remove" src="resources/delete.png" alt="Delete Icon"></span>
-                    <p class="book-title">Title: <span class="book-title"></span></p>
-                    <p class="book-author">Author: <span class="book-author"></span></p>
-                    <p class="book-pages">Pages: <span class="book-pages"></span></p>
-                    <p class="book-start">Start Date: <span class="book-start"></span></p>
-                    <div class="book-switch">
+                    <p>Title: </p>
+                    <p>Author: </p>
+                    <p>Pages: </p>
+                    <p>Start Date: </p>
+                    <p>
                         <label class="switch">
                             <input type="checkbox">
                             <span class="slider round"></span>
                         </label>
-                        <p></p>
-                    </div>
-                </div>         
-                <div class="books">
-                    <span><img class="icon-or remove" src="resources/delete.png" alt="Delete Icon"></span>
-                    <p class="book-title">Title: <span class="book-title"></span></p>
-                    <p class="book-author">Author: <span class="book-author"></span></p>
-                    <p class="book-pages">Pages: <span class="book-pages"></span></p>
-                    <p class="book-start">Start Date: <span class="book-start"></span></p>
-                    <div class="book-switch">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                        <p></p>
-                    </div>
-                </div>  
-                <div class="books">
-                    <span><img class="icon-or remove" src="resources/delete.png" alt="Delete Icon"></span>
-                    <p class="book-title">Title: <span class="book-title"></span></p>
-                    <p class="book-author">Author: <span class="book-author"></span></p>
-                    <p class="book-pages">Pages: <span class="book-pages"></span></p>
-                    <p class="book-start">Start Date: <span class="book-start"></span></p>
-                    <div class="book-switch">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                        <p></p>
-                    </div>
-                </div>     
-                <div class="books">
-                    <span><img class="icon-or remove" src="resources/delete.png" alt="Delete Icon"></span>
-                    <p class="book-title">Title: <span class="book-title"></span></p>
-                    <p class="book-author">Author: <span class="book-author"></span></p>
-                    <p class="book-pages">Pages: <span class="book-pages"></span></p>
-                    <p class="book-start">Start Date: <span class="book-start"></span></p>
-                    <div class="book-switch">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                        <p></p>
-                    </div>
-                </div>     
+                    </p>
+                </div>             
             </div>
         </div>
 
@@ -170,12 +127,13 @@
             </div>
             <div id="log-container">
                 <div id="log-card">
-                    <p>Total Books:</p>
-                    <p>Books Read:</p>
-                    <p>Books Unread:</p>
+                    <p>Total Books: <span id="total-books">0</span></p>
+                    <p>Books Read: <span id="read-books">0</span></p>
+                    <p>Books Unread: <span id="unread-books">0</span></p>
                     <a href="">More Stats...</a>
                 </div>    
             </div>
+            <p id="demo"></p>
         </div>
     </div>
 
@@ -184,20 +142,40 @@
         <div class="add-scren">
             <button id="exit" onclick="exit()">X</button>
         </div>
+
         <div id="new-book-container">
             <div id="new-book-menu">
-                <p class="book-title">Title: <span><input id="title-input" type="text" placeholder="Book title"></span></p>
-                <p class="book-author">Author: <span><input id="author-input" type="text" placeholder="Author name"></span></p>
-                <p class="book-pages">Pages: <span><input id="pages-input" type="number" placeholder="Number of pages"></span></p>
-                <p class="book-start">Start Date: <span><input id="date-input" type="date" placeholder="start date"></span></p>
-                <p class="book-status">Read: <span>
-                                                    <label class="container">
-                                                        <input type="checkbox">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </span>
-                </p>
-                <button id="addBtn" onclick="exit()">Add New Book</button>
+                <form id="form" action="#" method="post">
+                    <div>
+                      <label for="title">Title*</label>
+                      <input type="text" name="title" id="book_title" placeholder="Book title" required>
+                    </div>
+        
+                    <div>
+                        <label for="author">Author*</label>
+                        <input type="text" name="author" id="book_author" placeholder="Author name" required>
+                      </div>
+        
+                      <div>
+                        <label for="pages">Pages*</label>
+                        <input type="number" name="pages" id="book_pages" placeholder="Number of pages" required>
+                      </div>
+        
+                    <div>
+                        <label for="date">Start Date</label>
+                        <input type="date" name="date" id="book_date">
+                      </div>
+                    
+                    <div>
+                        <label for="read">Read</label>
+                        <input type="checkbox" name="read" value="read" id="book_read">
+                    </div>
+        
+                    <div>
+                        <button id="addBtn" type="submit">Add Book</button>
+                    </div>
+
+                  </form>
             </div>
         <div>   
     </div> 

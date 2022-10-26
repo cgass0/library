@@ -191,7 +191,7 @@ a {
 #hero-card-container {
     grid-row: 2/4;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-template-rows: repeat(auto-fit, minmax(250px, 250px));
     gap: 25px;
     padding: 0px 25px;
@@ -202,10 +202,33 @@ a {
     display: none;
 } 
 
+.books {
+    background-color: var(--color-white);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 25px 20px;
+    border: var(--broder-light);
+    display: grid;
+    grid-template-columns: 90% 5%;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
 .books>span {
+    grid-area: 1/2/2/3;
     position: relative;
     left: 85%;
     top: 0%;
+}
+
+.books>p {
+    grid-column: 1/2;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.books>p>span {
+    font-weight: 300;
+    font-size: 15px;
 }
 
 span>button {
@@ -219,20 +242,6 @@ span>button {
     padding-left: 25px;
     margin-bottom: 0;
     padding-bottom: 20px;
-}
-
-.books {
-    background-color: var(--color-white);
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    padding: 25px 20px;
-    border: var(--broder-light);
-}
-
-.book-title {
-    font-size: 20px;
-    font-weight: bolder;
-    margin: 0%;
 }
 
 /* Rigth Container Section */
@@ -398,7 +407,7 @@ input:checked + .slider:before {
     align-items: center;
     text-align: center;
     justify-self: center;
-    height: 375px;
+    height: 400px;
     width: 350px;
     background-color: var(--color-white);
     color: var(--color-black);
@@ -408,7 +417,6 @@ input:checked + .slider:before {
 }
 
 #new-book-menu {
-    background-color: var(--gradient);
     color: var(--color-black);
 }
 
@@ -420,9 +428,18 @@ input:checked + .slider:before {
     height: 25px;
     width: 90%;
     padding-left: 10px;
+    margin-top: 5px;
 }
 
-#new-book-menu button {
+form>div {
+    margin-top: 15px;
+}
+
+input>#book_read {
+    cursor: pointer;
+}
+
+#new-book-menu #addBtn {
     height: 35px;
     width: 200px;
     border-radius: 20px;
