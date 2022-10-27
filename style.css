@@ -79,6 +79,10 @@ a {
     color: var(--color-black);
 }
 
+#search-input:focus {
+    transform: scale(1.015);
+}
+
 #profile-link {
     text-align: center;
 }
@@ -306,6 +310,10 @@ span>button {
     cursor: pointer;
 }
 
+.icon:active, .icon-or:active, .icon:hover, .icon-or:hover {
+    transform: scale(1.2);
+}
+
 .icon-or {
     height: 20px;
     cursor: pointer;
@@ -458,12 +466,13 @@ input:checked + .slider:before {
 #book-add-screen {
     height: 100%;
     width: 100%;
+    transform: scale(0.1);
     position: absolute;
     z-index: 1;
-    top: 0;
-    left: 0;
+    top: 0%;
+    left: 0%;
     overflow-x: hidden;
-    transition: 0.5s; 
+    transition: 2.5s; 
     display: none;
 }
   

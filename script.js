@@ -129,7 +129,7 @@ document.getElementById('form').addEventListener('submit', function(e) {
 
     // Reset and quite form
     document.getElementById('form').reset();
-    document.getElementById("book-add-screen").style.width = "0%";
+    document.getElementById("book-add-screen").classList.remove('showing');
     document.getElementById('page-container').classList.remove('blur');
 });
 
