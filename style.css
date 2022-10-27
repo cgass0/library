@@ -211,7 +211,7 @@ a {
     display: grid;
     grid-template-columns: 90% 5%;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-}
+}   
 
 .books>span {
     grid-area: 1/2/2/3;
@@ -335,7 +335,7 @@ span>button {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: rgb(202, 202, 202);
     -webkit-transition: .4s;
     transition: .4s;
 }
@@ -351,7 +351,7 @@ span>button {
 }
   
 input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #000000;
 }
   
 input:focus + .slider {
@@ -365,13 +365,83 @@ input:checked + .slider:before {
 }
   
 /* Rounded sliders */
-    .slider.round {
+.slider.round {
     border-radius: 34px;
 }
 
 .slider.round:before {
     border-radius: 50%;
 }
+
+/* Read-Slider */
+
+.switch-read {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+}
+
+.switch-read input {display:none;}
+
+.slider-read {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ca2222;
+    -webkit-transition: .4s;
+    transition: .4s;
+     border-radius: 34px;
+  }
+
+  .slider-read:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider-read {
+    background-color: #2ab934;
+  }
+  
+  input:focus + .slider-read {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider-read:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(68px);
+  }
+  
+  /*------ ADDED CSS ---------*/
+  .slider-read:after
+  {
+   content:'unread';
+   color: white;
+   display: block;
+   position: absolute;
+   transform: translate(-45%,-50%);
+   top: 50%;
+   left: 50%;
+   font-size: 10px;
+   font-family: Verdana, sans-serif;
+  }
+  
+  input:checked + .slider-read:after
+  {  
+    content:'read';
+  }
 
 /* Book Adding Screen */
 

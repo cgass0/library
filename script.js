@@ -36,16 +36,19 @@ function Book(Title, Author, Pages, Started, Read) {
     this.Pages = Pages;
     this.Started = Started;
     this.Read = Read;
-  }
+}
+
 
 // Library Array of Objects/Books
 let myLibrary = [];
 
+
 // Function for adding a new book to array/library
-function addBookToLibrary(Title, Author, Pages, Date, Read) {
-    let book = new Book(Title, Author, Pages, Date, Read);
+function addBookToLibrary(Title, Author, Pages, Started, Read) {
+    let book = new Book(Title, Author, Pages, Started, Read);
     myLibrary.push(book);
 }
+
 
 // Function to display library array on cards
 function displayBooksOnPage() {
@@ -75,9 +78,6 @@ function displayBooksOnPage() {
     })
 }
 
-// Get inputs from new book form
-
-
 
 // Add Book button push to Book, reset form, close menu
 document.getElementById('form').addEventListener('submit', function(e) {
@@ -90,12 +90,9 @@ document.getElementById('form').addEventListener('submit', function(e) {
     let inputDate = document.getElementById("book_date");
     let inputRead = document.getElementById("book_read");
 
-    console.log(inputTitle.value);
-    console.log(inputAuthor.value);
-    console.log(inputPages.value);
-
     // Assign HTML Inputs to Book, update page
-    addBookToLibrary(inputTitle.value, inputAuthor.value, inputPages.value, inputDate.value, inputRead.value);
+    removeDivs();
+    addBookToLibrary(inputTitle.value, inputAuthor.value, inputPages.value, inputDate.value, inputRead.checked);
     displayBooksOnPage();
     updateStats();
 
@@ -115,15 +112,19 @@ function updateStats() {
     //Read = True not working
     let totalRead = document.querySelector("#read-books");
     let y = 0;
-    for (let key in myLibrary) {
-        if (myLibrary[key] = true) {
-            y += 1;
-        }
-    }
+    y = array.filter((Book) => Book.id === true).length;
     totalRead.textContent = y;
+    console.log(y);
 
     //Unread
     let totalUnread = document.querySelector("#unread-books");
     totalUnread.textContent = myLibrary.length - y;
+}
 
+// Remove Doms to re-add library
+function removeDivs() {
+    const removeDivs = document.querySelectorAll(".books");
+    for (let i = 0; i <removeDivs.length; i++) {
+        removeDivs[i].remove();
+    }
 }
