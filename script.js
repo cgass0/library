@@ -17,17 +17,17 @@ const addBookBtn = document.getElementById('addBookBtn');
 addBookBtn.addEventListener('click', bookAdd);
 
 function bookAdd() {
-    document.getElementById("book-add-screen").style.width = "100%";
     document.getElementById('page-container').classList.add('blur');
+    document.getElementById("book-add-screen").classList.add('showing');
 }
 
 function exit() {
-    document.getElementById("book-add-screen").style.width = "0%";
+    document.getElementById("book-add-screen").classList.remove('showing');
     document.getElementById('page-container').classList.remove('blur');
 }
 
 
-// Library Array //
+//                                             Library Array                            //
 
 // Object Constructor
 function Book(Title, Author, Pages, Started, Read) {
@@ -53,29 +53,60 @@ function addBookToLibrary(Title, Author, Pages, Started, Read) {
 // Function to display library array on cards
 function displayBooksOnPage() {
     const books = document.querySelector("#hero-card-container");
+    let index = 0;
 
-    // Loop over library array and display to the cards
-    myLibrary.forEach(myLibrary => {
+    myLibrary.forEach(myLibrarys => {
+        index++
+
+        // Creating new cards for book display
         const card = document.createElement("div");
         card.classList.add("books");
+        card.setAttribute('id', index);
         books.appendChild(card);
-        const span = document.createElement("span");
-        card.appendChild(span);
-        const img = document.createElement("img");
-        span.appendChild(img);
-        img.classList.add("icon-or");
-        img.classList.add("remove");
-        img.src = "resources/delete.png";
+        
 
-        for (let key in myLibrary) {
+        // Adding delete button in top corner of card
+        const rmBtn = document.createElement("input"); 
+        rmBtn.type = "image";
+        card.appendChild(rmBtn);
+        rmBtn.classList.add("icon-or");
+        rmBtn.classList.add("remove");
+        rmBtn.src = "resources/delete.png";
+
+        // Loop over library array and display to the cards
+        for (let key in myLibrarys) {
             const para = document.createElement("p");
             card.appendChild(para);
             para.textContent = (`${key}: `)
             const span = document.createElement("span");
             para.appendChild(span);
-            span.textContent = (`${myLibrary[key]}`);
+            span.textContent = (`${myLibrarys[key]}`);
         }
+
+        // Adding Read slider to bottom of card and status
+        const label = document.createElement("label"); 
+        const input = document.createElement("input");
+        const span = document.createElement("span");
+        const lastP = card.lastChild;
+        if (lastP.textContent.includes("true")) {
+            input.checked = true;
+        }
+
+        lastP.textContent = "";
+        input.type = "checkbox";
+        input.classList.add("read-slider");
+        lastP.classList.add("slider-check");
+        lastP.appendChild(label);
+        label.classList.add("switch-read");
+        label.appendChild(input);
+        label.appendChild(span);
+        span.classList.add("slider-read");
+        span.classList.add("round-read");
     })
+
+    // Function for removing books from display;
+    removeBook();
+    toggleRead();
 }
 
 
@@ -111,15 +142,16 @@ function updateStats() {
 
     //Read = True not working
     let totalRead = document.querySelector("#read-books");
-    let y = 0;
-    y = array.filter((Book) => Book.id === true).length;
-    totalRead.textContent = y;
-    console.log(y);
+    let y = myLibrary.filter(Book => Book.Read === true);
+    
+
+    totalRead.textContent = y.length;
 
     //Unread
     let totalUnread = document.querySelector("#unread-books");
-    totalUnread.textContent = myLibrary.length - y;
+    totalUnread.textContent = myLibrary.length - y.length;
 }
+
 
 // Remove Doms to re-add library
 function removeDivs() {
@@ -128,3 +160,47 @@ function removeDivs() {
         removeDivs[i].remove();
     }
 }
+
+
+// Remove Book from Library and Display
+function removeBook() {
+
+    let btn = document.getElementsByClassName('remove');
+    for (let i = 0; i < btn.length; i++) {
+        btn[i].addEventListener('click', function(e) {
+            let arrayID = e.currentTarget.parentElement.id; // retrieve parent element ID from index
+            myLibrary.splice(Number(arrayID)-1, 1); // splice at id-1 for 1
+
+            e.currentTarget.parentNode.remove(); // remove from display
+
+            updateStats(); // update stats on side live
+        }, false);
+    }
+}
+
+
+// Toogle read/unread inside myLibrary
+function toggleRead() {
+    let checkbox = document.getElementsByClassName('read-slider');
+    for (let i = 0; i < checkbox.length; i++) {
+        checkbox[i].addEventListener('click', function(e) { 
+
+            let arrayID = e.currentTarget.parentNode.parentNode.parentNode.id; // retrieve parent element ID from index
+        
+            if (e.currentTarget.checked) {
+                myLibrary[arrayID-1].Read = true; // find value in myLibrary and updates
+              } else {
+                myLibrary[arrayID-1].Read = false; // find value in myLibrary and updates
+            }
+
+            updateStats(); // update stats on side live
+
+        }, false);
+    }
+}
+
+// Filler Books for examples form start
+addBookToLibrary("Harry Potter", "JK Rowling", 400, "2022-10-11", true);
+addBookToLibrary("Lord of The Rings", "RR Tolken", 300, "2021-09-21", false);
+displayBooksOnPage();
+updateStats();

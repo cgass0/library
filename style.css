@@ -40,7 +40,7 @@ a {
 #page-container {
     display: grid;
     height: 100vh;
-    grid-template-columns: 280px 4fr 1fr;
+    grid-template-columns: 280px 4fr 250px;
     grid-template-rows: 150px 200px 200px auto;
 }
 
@@ -58,7 +58,7 @@ a {
 #upper-header {
     grid-row: 1/2;
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 3fr 250px;
     column-gap: 20px;
 }
 
@@ -123,6 +123,7 @@ a {
     color: white;
     font-weight: bolder;
     align-items: center;
+    text-align: center;
     background-image: var(--gradient);
     border: 0;
     box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
@@ -213,11 +214,16 @@ a {
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }   
 
-.books>span {
+.books>input {
     grid-area: 1/2/2/3;
     position: relative;
     left: 85%;
     top: 0%;
+}
+
+.books>.hidden {
+    display: none;
+    font-size: 0;
 }
 
 .books>p {
@@ -229,6 +235,10 @@ a {
 .books>p>span {
     font-weight: 300;
     font-size: 15px;
+}
+
+.books>p.slider-check {
+    grid-area: 5/1/6/2;
 }
 
 span>button {
@@ -281,10 +291,11 @@ span>button {
     padding-bottom: 5px;
 }
 
-#log-container a {
+#log-container>div div{
     font-size: 15px;
     color: var(--color-black);
     text-decoration: underline;
+    cursor: pointer;
 }
 
 /* Icons and Pictures */
@@ -293,7 +304,6 @@ span>button {
     height: 20px;
     filter: brightness(0) invert(1);
     cursor: pointer;
-
 }
 
 .icon-or {
@@ -447,16 +457,20 @@ input:checked + .slider:before {
 
 #book-add-screen {
     height: 100%;
-    width: 0;
+    width: 100%;
     position: absolute;
     z-index: 1;
     top: 0;
     left: 0;
     overflow-x: hidden;
-    transition: 0.0s; 
-    display: grid;
+    transition: 0.5s; 
+    display: none;
 }
   
+#book-add-screen.showing {
+    display: grid;
+}
+
 #page-container.blur{
     filter: blur(8px);
     -webkit-filter: blur(8px);
@@ -517,6 +531,7 @@ input>#book_read {
     color: white;
     font-weight: bolder;
     align-items: center;
+    text-align: center;
     background-image: var(--gradient);
     border: 0;
     box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
